@@ -31,5 +31,9 @@ Login Info: https://charity.3scale.net/login
 See Google Doc for username/password
 https://charitynavigator.github.io/api/CharityNavigatorAPI/generated/RZenHtmlDocs/CharityNavigator_doc.html
 How to Contact the Charity Navigator API Team: apisupport@charitynavigator.org
-		
 
+Routing API	
+https://www.geoapify.com/routing-api
+GeoapifyGeoapify
+Routing API | Routes and directions | Geoapify Location Platform
+Calculate routes and directions for car, truck, walk, bicycle, and public transport. Set restrictions and desired conditions.
