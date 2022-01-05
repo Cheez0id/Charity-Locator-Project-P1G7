@@ -1,5 +1,3 @@
-console.log("testnote");
-
 //Charity API ID and Key; The base URL for the Data API is:
 //api.data.charitynavigator.org/v2
 //Params and magic reference documentation: https://charity.3scale.net/docs/data-api/reference
@@ -24,8 +22,10 @@ var charityQuery =
 	charityQCity +
 	"&scopeOfWork=ALL";
 
+//a function that when called will run a query on charity API
+function fetchCharity(){
 fetch(charityQuery)
-	//TODO: the above query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
+	//TODO:  query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
 	.then(function (response) {
 		return response.json();
 	})
@@ -36,6 +36,13 @@ fetch(charityQuery)
 			console.log(data[i].charityName);
 		}
 	});
+}
+//calling the function on click of a blue button
+// fetchCharity();
+
+document.getElementById("blueButton").addEventListener("click", function(){
+  console.log("a button was clicked"); fetchCharity();
+});
 
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";

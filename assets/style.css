@@ -2,3 +2,8 @@
   background-color: cornsilk;
   align-content: center;
 }
+
+#blueButton{
+  background-color: darkblue;
+  color: antiquewhite;
+}
