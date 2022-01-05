@@ -1,15 +1,21 @@
 console.log("testnote");
 
 //Charity API ID and Key; The base URL for the Data API is:
-https://api.data.charitynavigator.org/v2
+https://api.data.charitynavigator.org/v2  
+//Params and magic reference documentation: https://charity.3scale.net/docs/data-api/reference
 
+//Charity API ID and Key; The base URL for the Data API is:
+var charityQState=""
+var charityQCity=""
+var charityQsearch ="food"
 var app_id="97037ae1"
-var app_key = "3db6711569ba31d8872d4b3811e6e901";
+var app_key = "3db6711569ba31d8872d4b3811e6e901"
 
-var charityQuery ="https://api.data.charitynavigator.org/v2/Organizations?app_id=97037ae1&app_key=3db6711569ba31d8872d4b3811e6e901&pageSize=50&search=food&rated=true&fundraisingOrgs=false&state=GA&city=Atlanta&scopeOfWork=REGIONAL"
+var charityQuery = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + app_id + "&app_key=" + app_key + "&search=" + charityQsearch + "&fundraisingOrgs=false&state=" + charityQState + "&city=" + charityQCity + "&scopeOfWork=ALL"
 
 fetch(charityQuery);
-console.log(charityQuery);
+//TODO: the above query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
+
 
 
 
