@@ -13,9 +13,18 @@ var app_key = "3db6711569ba31d8872d4b3811e6e901"
 
 var charityQuery = "https://api.data.charitynavigator.org/v2/Organizations?app_id=" + app_id + "&app_key=" + app_key + "&search=" + charityQsearch + "&fundraisingOrgs=false&state=" + charityQState + "&city=" + charityQCity + "&scopeOfWork=ALL"
 
-fetch(charityQuery);
+fetch(charityQuery)
 //TODO: the above query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
-
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log("Below are the number of charities and their names from the query.");
+  console.log(data.length); 
+  for (var i = 0; i < data.length; i++) {
+    console.log(data[i].charityName);
+  }
+});
 
 
 
