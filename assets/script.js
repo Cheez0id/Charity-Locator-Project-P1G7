@@ -1,4 +1,4 @@
-something else is in this file
+
 // Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
 
