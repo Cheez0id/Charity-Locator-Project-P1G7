@@ -19,8 +19,8 @@ fetch(charityQuery)
   return response.json();
 })
 .then(function (data) {
-  console.log("Below are the number of charities and their names from the query.");
-  console.log(data.length); 
+  console.log("hello! here is some data");
+  console.log(data); 
   for (var i = 0; i < data.length; i++) {
     console.log(data[i].charityName);
   }
