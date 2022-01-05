@@ -31,3 +31,4 @@ https://charitynavigator.github.io/api/CharityNavigatorAPI/generated/RZenHtmlDoc
 		
 
 Adding hello to test branching
+Mary's note to the readme!
