@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 
-// Routing api key = 56317e1080cb40469433a05f077bbb52
+
 =======
 <<<<<<< HEAD
 
@@ -13,9 +13,9 @@ var app_key = "3db6711569ba31d8872d4b3811e6e901";
 
 
 //Routing api key = 56317e1080cb40469433a05f077bbb52
->>>>>>> 3b4f2530e8e13cb57204e3c7160f507aaf313254
-var routingApiKey = "56317e1080cb40469433a05f077bbb52";
 
+var routingApiKey = "56317e1080cb40469433a05f077bbb52";
+>>>>>>> 3b4f2530e8e13cb57204e3c7160f507aaf313254
 var requestOptions = {
     method: 'GET',
   };
