@@ -1,5 +1,14 @@
-something else is in this file
-// Routing api key = 56317e1080cb40469433a05f077bbb52
+<<<<<<< HEAD
+
+
+
+
+//Below is where we will have the charity API code
+var app_id="97037ae1"
+var app_key = "3db6711569ba31d8872d4b3811e6e901";
+
+
+//Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
 
 var requestOptions = {
@@ -12,3 +21,4 @@ var requestOptions = {
   
 
 console.log(requestOptions);
+>>>>>>> 7625ea9b97fd13e1646507fdceeb931c9d355e7a

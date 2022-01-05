@@ -26,12 +26,10 @@ Element 4: output walking distance
 
 Charity API
 Charity Navigator's API
-Login Info: See Google Doc
+https://charity.3scale.net/docs/data-api/reference
+Login Info: https://charity.3scale.net/login
+See Google Doc for username/password
 https://charitynavigator.github.io/api/CharityNavigatorAPI/generated/RZenHtmlDocs/CharityNavigator_doc.html
+How to Contact the Charity Navigator API Team: apisupport@charitynavigator.org
 		
 
-Adding hello to test branching
-Mary's note to the readme!
-Add another note to the readme!
-
-adding another  nooote!
