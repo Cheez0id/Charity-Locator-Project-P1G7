@@ -51,6 +51,9 @@ function fetchCharity() {
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
+				// charityCard.addEventListener("click", function () {
+				// 	console.log("a charityCard was clicked");
+				// 	});
 			}
 		});
 }
@@ -83,6 +86,7 @@ console.log(requestOptions);
 
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
 charityCard.addEventListener("click", function () {
+	console.log("a charityCard was clicked");
 	var charityInfo = {
 		name: name.value,
 		mission: mission.value,
