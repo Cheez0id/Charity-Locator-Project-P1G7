@@ -29,11 +29,15 @@ function fetchCharity() {
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
 				console.log(data[i].charityName);
-        charityQResult.value += (data[i].charityName);
+				var charityQCard = document.createElement("p");
+				charityQCard.textContent = (data[i].charityName);
+        charityQResult.append(charityQCard);
 			}
 		});
 }
 console.log(charityQResult.value)
+//TODO: pull location details from charity api (as well as other elements we will display)
+
 
 //calling the function on click of a blue button
 // then running fetchCharity();
