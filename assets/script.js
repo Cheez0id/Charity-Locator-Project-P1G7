@@ -1,3 +1,5 @@
+// e305b86027cf27703fd844cd62d002cb62ddd319
+//3b4f2530e8e13cb57204e3c7160f507aaf313254
 //Charity API ID and Key; The base URL for the Data API is:
 //api.data.charitynavigator.org/v2
 //Params and magic reference documentation: https://charity.3scale.net/docs/data-api/reference
@@ -69,9 +71,17 @@ document.getElementById("blueButton").addEventListener("click", function () {
 	fetchCharity();
 });
 
+CSSWork
+
+// >>>>>>> e305b86027cf27703fd844cd62d002cb62ddd319
+
+
+
+
+ main
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
-
+// >>>>>>> 3b4f2530e8e13cb57204e3c7160f507aaf313254
 var requestOptions = {
 	method: "GET",
 };
