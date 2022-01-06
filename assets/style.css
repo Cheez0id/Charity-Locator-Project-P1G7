@@ -1,10 +1,11 @@
 .charityDiv{
   background-color: cornsilk;
   align-content: center;
-}
+  }
 
 #blueButton{
   background-color: darkblue;
+CSSWork
   color: antiquewhite;
 }
 
@@ -16,34 +17,18 @@
   float: right;
 }
 
+  color: antiquewhite; 
+}
 
+.charityCard{
+  margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width: 60%;
+	border: 5px solid rgb(83, 52, 133);
+  background-color: antiquewhite;
+	font-size: 125%;
+	padding: 25px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*MEDIA QUERIES*/
-
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) { ... }
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) { ... }
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) { ... }
