@@ -20,7 +20,6 @@ var charityQuery =
 //a function that when called will run a query on charity API
 function fetchCharity() {
 	fetch(charityQuery)
-		//TODO:  query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
 		.then(function (response) {
 			return response.json();
 		})
@@ -28,9 +27,9 @@ function fetchCharity() {
 			console.log("hello! here is some data");
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				console.log(data[i].charityName);
 				var charityQCard = document.createElement("p");
-				charityQCard.textContent = (data[i].charityName);
+				charityQCard.setAttribute("class","charityCard");
+				charityQCard.textContent = (data[i].charityName) + " Website: " + (data[i].websiteURL) + " Mailing Address: " + (data[i].mailingAddress.streetAddress1) + ", " + (data[i].mailingAddress.streetAddress2) + ", " + (data[i].mailingAddress.city) + ", " + (data[i].mailingAddress.stateOrProvince) + ", " + (data[i].mailingAddress.postalCode);
         charityQResult.append(charityQCard);
 			}
 		});
