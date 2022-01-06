@@ -34,6 +34,9 @@ function fetchCharity() {
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
 				var charityQCard = document.createElement("p");
+				charityQCard.setAttribute("class", "charityCard");
+				var charityName = data[i].charityName
+				var charityURL = data[i].websiteURL
 				var charityAddress = 	data[i].mailingAddress.streetAddress1 +
 				", " +
 				data[i].mailingAddress.streetAddress2 +
@@ -43,11 +46,10 @@ function fetchCharity() {
 				data[i].mailingAddress.stateOrProvince +
 				", " +
 				data[i].mailingAddress.postalCode;
-				charityQCard.setAttribute("class", "charityCard");
 				charityQCard.textContent =
-					data[i].charityName +
+					charityName +
 					" Website: " +
-					data[i].websiteURL +
+					charityURL +
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
