@@ -18,7 +18,9 @@ var charityQuery =
 	"&city=" +
 	charityQCity +
 	"&scopeOfWork=ALL";
-
+var charityURL;
+var charityName;
+var charityAddress;
 //a function that when called will run a query on charity API
 function fetchCharity() {
 	fetch(charityQuery)
@@ -31,9 +33,9 @@ function fetchCharity() {
 			for (var i = 0; i < data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
-				var charityName = data[i].charityName;
-				var charityURL = data[i].websiteURL;
-				var charityAddress =
+				charityName = data[i].charityName;
+			 	charityURL = data[i].websiteURL;
+				charityAddress =
 					data[i].mailingAddress.streetAddress1 +
 					", " +
 					data[i].mailingAddress.streetAddress2 +
@@ -50,9 +52,10 @@ function fetchCharity() {
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
-				// charityCard.addEventListener("click", function () {
-				// 	console.log("a charityCard was clicked");
-				// 	});
+				// charityQCard.addEventListener("click", function (event) {
+				// console.log("a charityCard was clicked");
+				// console.log(event.target);
+				// });
 			}
 		});
 }
@@ -66,7 +69,7 @@ document.getElementById("blueButton").addEventListener("click", function () {
 	fetchCharity();
 });
 
-main;
+//main;
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
 var requestOptions = {
@@ -83,14 +86,13 @@ fetch(
 console.log(requestOptions);
 
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
-charityCard.addEventListener("click", function () {
+charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
+	console.log(event.target)
 	var charityInfo = {
-		name: name.value,
-		mission: mission.value,
-		url: url.value,
-		location: location.value,
-	};
+		name: charityName.value,
+		url: charityURL.value,
+		location: charityAddress.value};
 	localStorage.setItem("viewed", JSON.stringify(charityInfo));
 
 	displayViewed();
