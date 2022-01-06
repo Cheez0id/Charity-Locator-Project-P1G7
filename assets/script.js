@@ -30,7 +30,7 @@ function fetchCharity() {
 		.then(function (data) {
 			console.log("hello! here is some data");
 			console.log(data);
-			for (var i = 0; i < data.length; i++) {
+				for (var i = 0; i < data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
 				charityName = data[i].charityName;
@@ -64,10 +64,17 @@ console.log(charityQResult.value);
 
 //calling the function on click of a blue button
 // then running fetchCharity();
-document.getElementById("blueButton").addEventListener("click", function () {
+document.getElementById("inputForm").addEventListener("submit", function (event) {
+	event.preventDefault();
 	console.log("a button was clicked");
 	fetchCharity();
-});
+	});
+
+	//CLEAR BUTTON TO REFRESH PAGE
+	document.getElementById("clearBtn").addEventListener("click", function () {
+		console.log("a button was clicked");
+		window.location.reload();
+		});
 
 //main;
 //Routing api key = 56317e1080cb40469433a05f077bbb52
