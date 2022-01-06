@@ -45,10 +45,14 @@ document.getElementById("blueButton").addEventListener("click", function () {
 });
 
 
+// >>>>>>> e305b86027cf27703fd844cd62d002cb62ddd319
+
+
 
 
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
+// >>>>>>> 3b4f2530e8e13cb57204e3c7160f507aaf313254
 var requestOptions = {
 	method: "GET",
 };
