@@ -28,7 +28,7 @@
 	<body>
 
 		<div>
-		<form>
+		<form id="inputForm">
 			<div class="form-group">
 				<label for="City">City</label>
 				<input type="address" class="form-control" id="City" placeholder="Enter City">
@@ -41,7 +41,8 @@
 				<label for="zipCode">Zip Code</label>
 				<input type="address" class="form-control" id="zipCode" placeholder="Enter Zip Code">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+			<button type="clear" class="btn btn-primary" id="clearBtn">Clear</button>
 			</form>
 			</div>
 
@@ -55,8 +56,7 @@
 
 				<div class="charityDiv">
 					<h2>This is where the list of charities searched will go.</h2>
-					<button id="blueButton">Click Me</button>
-					<div id="charitiesList"></div>
+						<div id="charitiesList"></div>
 				</div>
 				<!--MOST RECENT SEARCHES-->
 				<div class="col-lg-3 mostRecent">
