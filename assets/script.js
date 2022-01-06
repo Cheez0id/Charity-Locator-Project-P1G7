@@ -65,3 +65,25 @@ fetch(
 
 console.log(requestOptions);
 //>>>>>>> 7625ea9b97fd13e1646507fdceeb931c9d355e7a
+
+//When the Charity is clicked on, store in local   (WORK IN PROGRESS)
+charityCard.addEventListener("click", function() {
+	var charityInfo = {
+		name: name.value,
+		mission: mission.value,
+		url: url.value,
+		location: location.value
+	}
+	localStorage.setItem("viewed", JSON.stringify(charityInfo));
+
+	displayViewed();
+});
+//Display on some HTML element  (WORK IN PROGRESS)
+function displayViewed() {
+	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
+	document.getElementById("").htmlEl = charityInfo.name;
+	document.getElementById("").htmlEl = charityInfo.mission;
+	document.getElementById("").htmlEl = charityInfo.url;
+	document.getElementById("").htmlEl = charityInfo.location;
+}
+// (WORK IN PROGRESS)
