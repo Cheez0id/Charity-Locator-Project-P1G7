@@ -5,6 +5,18 @@
 
 #blueButton{
   background-color: darkblue;
+CSSWork
+  color: antiquewhite;
+}
+
+.charity {
+  float: left;
+}
+
+.mostRecent {
+  float: right;
+}
+
   color: antiquewhite; 
 }
 
@@ -19,3 +31,4 @@
 	font-size: 125%;
 	padding: 25px;
 }
+
