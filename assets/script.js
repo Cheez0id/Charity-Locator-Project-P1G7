@@ -19,6 +19,8 @@ var charityQuery =
 	charityQCity +
 	"&scopeOfWork=ALL";
 
+
+
 //a function that when called will run a query on charity API
 function fetchCharity() {
 	fetch(charityQuery)
@@ -28,7 +30,7 @@ function fetchCharity() {
 		.then(function (data) {
 			console.log("hello! here is some data");
 			console.log(data);
-			for (var i = 0; i < data.length; i++) {
+				for (var i = 0; i < data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
 				var charityName = data[i].charityName;
@@ -61,11 +63,17 @@ console.log(charityQResult.value);
 
 //calling the function on click of a blue button
 // then running fetchCharity();
-document.getElementById("blueButton").addEventListener("click", function () {
+document.getElementById("inputForm").addEventListener("submit", function (event) {
+	event.preventDefault();
 	console.log("a button was clicked");
 	fetchCharity();
-});
+	});
 
+	//CLEAR BUTTON TO REFRESH PAGE
+	document.getElementById("clearBtn").addEventListener("click", function () {
+		console.log("a button was clicked");
+		window.location.reload();
+		});
 
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
