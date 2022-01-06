@@ -85,5 +85,15 @@ function displayViewed() {
 	document.getElementById("").htmlEl = charityInfo.mission;
 	document.getElementById("").htmlEl = charityInfo.url;
 	document.getElementById("").htmlEl = charityInfo.location;
+
+	var deleteButton = $('<td>')
+    .addClass('deleteButton')
+    .text('X');
 }
+
+function deleteViewed(event) {
+	
+}
+
+htmlEl.addEventListener('click', 'deleteButton', deleteViewed());
 // (WORK IN PROGRESS)
