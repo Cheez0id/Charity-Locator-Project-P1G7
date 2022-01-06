@@ -3,46 +3,47 @@
 //Params and magic reference documentation: https://charity.3scale.net/docs/data-api/reference
 
 //Charity API ID and Key; The base URL for the Data API is:
-https: var charityQState = "";
+var charityQState = "";
 var charityQCity = "";
 var charityQsearch = "food";
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
+var charityQResult = document.getElementById("charitiesList");
 
 var charityQuery =
-	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
-	app_id +
-	"&app_key=" +
-	app_key +
-	"&search=" +
-	charityQsearch +
-	"&fundraisingOrgs=false&state=" +
-	charityQState +
-	"&city=" +
-	charityQCity +
-	"&scopeOfWork=ALL";
+	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" + app_id +
+	"&app_key=" +	app_key +
+	"&search=" + charityQsearch +
+	"&fundraisingOrgs=false&state=" +	charityQState +
+	"&city=" +	charityQCity + "&scopeOfWork=ALL";
 
 //a function that when called will run a query on charity API
-function fetchCharity(){
-fetch(charityQuery)
-	//TODO:  query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
-	.then(function (response) {
-		return response.json();
-	})
-	.then(function (data) {
-		console.log("hello! here is some data");
-		console.log(data);
-		for (var i = 0; i < data.length; i++) {
-			console.log(data[i].charityName);
-		}
-	});
+function fetchCharity() {
+	fetch(charityQuery)
+		//TODO:  query works; need to get specific data from XHP and Fetch to display upon request - ??Fetch>Organizations>[array]
+		.then(function (response) {
+			return response.json();
+		})
+		.then(function (data) {
+			console.log("hello! here is some data");
+			console.log(data);
+			for (var i = 0; i < data.length; i++) {
+				console.log(data[i].charityName);
+        charityQResult.value += (data[i].charityName);
+			}
+		});
 }
-//calling the function on click of a blue button
-// fetchCharity();
+console.log(charityQResult.value)
 
-document.getElementById("blueButton").addEventListener("click", function(){
-  console.log("a button was clicked"); fetchCharity();
+//calling the function on click of a blue button
+// then running fetchCharity();
+document.getElementById("blueButton").addEventListener("click", function () {
+	console.log("a button was clicked");
+	fetchCharity();
 });
+
+
+
 
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
