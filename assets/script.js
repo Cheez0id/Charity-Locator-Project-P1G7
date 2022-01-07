@@ -6,6 +6,7 @@ var charityViewResult = document.getElementById("charitiesViewed");
 var charityTitle;
 var charityURL;
 var charityAddress;
+var charityQCard;
 // var charityQCity = document.getElementById("City").value;
 // console.log(charityQCity);
 
@@ -104,13 +105,13 @@ fetch(
 	.catch((error) => console.log("error", error));
 
 console.log(requestOptions);
-var charityViewed = []
-//When the Charity is clicked on, store in local   (WORK IN PROGRESS)
+
+//When the Charity is clicked on, store in local   (WORK IN PROGRESS) GET RID OF NULL
+var charityViewed = [];
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
 	console.log(event.target.getAttribute("charityName"));
-
 
 	var charityInfo = {
 		name: event.target.getAttribute("charityName"),
@@ -118,21 +119,16 @@ charityQResult.addEventListener("click", function (event) {
 		location: event.target.getAttribute("charityAddress")
 	};
 
-
 	charityViewed.unshift(charityInfo);
-
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
-
-
 });
-
 
 displayViewed();
 
-//Display on some HTML element  (WORK IN PROGRESS)
+//Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-	for (var j = 0; j < charityInfo.length; j++) {
+	for (var j = 0; j < 5; j++) {
 		charityName = charityInfo[j].name;
 		charityURL = charityInfo[j].url;
 		charityAddress = charityInfo[j].location;
@@ -145,15 +141,6 @@ function displayViewed() {
 			charityAddress;
 		charityViewResult.append(charityViewCard);
 	}
-	var deleteButton = $('<td>')
-		.addClass('deleteButton')
-		.text('X');
+};
 
-}
-
-function deleteViewed(event) {
-
-}
-
-htmlEl.addEventListener('click', 'deleteButton', deleteViewed());
 // (WORK IN PROGRESS)
