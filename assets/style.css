@@ -28,3 +28,16 @@
 	padding: 25px;
 }
 
+.charityCardNo{
+  margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width: 60%;
+	border: 5px solid rgb(133, 52, 83);
+  background-color: antiquewhite;
+	font-size: 125%;
+	padding: 25px;
+  content: "No Results Found";
+
+}
