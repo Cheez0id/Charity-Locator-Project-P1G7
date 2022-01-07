@@ -106,9 +106,8 @@ fetch(
 
 console.log(requestOptions);
 
-//When the Charity is clicked on, store in local   (WORK IN PROGRESS) GET RID OF NULL
+//When the Charity is clicked on, store in local   (WORK IN PROGRESS)
 var charityViewed = [];
-charityViewed.unshift(localStorage.getItem("viewed"));
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
