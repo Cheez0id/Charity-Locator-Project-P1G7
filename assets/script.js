@@ -1,12 +1,17 @@
 //Charity API ID and Key; The base URL for the Data API is:
-var charityQState = "";
-var charityQCity = "";
-var charityQZip= "";
-var charityQsearch = "food";
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var charityQResult = document.getElementById("charitiesList");
 
+// var charityQCity = document.getElementById("City").value;
+// console.log(charityQCity);
+
+//a function that when called will run a query on charity API
+function fetchCharity() {
+var charityQState = document.getElementById("State").value;
+var charityQCity = document.getElementById("City").value;
+var charityQZip= document.getElementById("zipCode").value;
+var charityQsearch = "food";
 var charityQuery =
 	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
 	app_id +
@@ -22,19 +27,15 @@ var charityQuery =
 	charityQZip +
 	"&scopeOfWork=ALL"
 	;
+	console.log(charityQCity);
 
-
-
-//a function that when called will run a query on charity API
-function fetchCharity() {
 	fetch(charityQuery)
 		.then(function (response) {
 			return response.json();
 		})
-		.then(function (data) {
-			console.log("hello! here is some data");
-			console.log(data);
-				for (var i = 0; i < data.length; i++) {
+			.then(function (data) {
+				console.log(data);
+				for (var i = 0; i <= data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
 				var charityName = data[i].charityName;
