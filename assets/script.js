@@ -5,7 +5,7 @@ var charityQsearch = "food";
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var charityQResult = document.getElementById("charitiesList");
-
+var charityViewResult = document.getElementById("charitiesViewed");
 var charityQuery =
 	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
 	app_id +
@@ -97,24 +97,32 @@ console.log(requestOptions);
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
-	var j = 0
 	var charityInfo = {
 		name: charityName,
 		url: charityURL,
 		location: charityAddress};
-	localStorage.setItem("viewed", JSON.stringify(charityInfo));
-	j++;
 
-	displayViewed();
+
+	localStorage.setItem("viewed", JSON.stringify(charityInfo));
+
+	
 });
+displayViewed();
+
 //Display on some HTML element  (WORK IN PROGRESS)
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-	document.getElementById("").htmlEl = charityInfo.name;
-	document.getElementById("").htmlEl = charityInfo.mission;
-	document.getElementById("").htmlEl = charityInfo.url;
-	document.getElementById("").htmlEl = charityInfo.location;
-
+	charityName = charityInfo.name;
+	charityURL = charityInfo.url;
+	charityAddress = charityInfo.location;
+	var charityViewCard = document.createElement("p");
+	charityViewCard.textContent =
+	charityName +
+	" Website: " +
+	charityURL +
+	" Mailing Address: " +
+	charityAddress;
+charityViewResult.append(charityViewCard);
 	var deleteButton = $('<td>')
     .addClass('deleteButton')
     .text('X');
