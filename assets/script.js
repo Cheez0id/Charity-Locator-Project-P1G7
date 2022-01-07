@@ -2,7 +2,11 @@
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var charityQResult = document.getElementById("charitiesList");
-
+var charityViewResult = document.getElementById("charitiesViewed");
+var charityTitle;
+var charityURL;
+var charityAddress;
+var charityQCard;
 // var charityQCity = document.getElementById("City").value;
 // console.log(charityQCity);
 
@@ -44,9 +48,11 @@ function fetchCharity() {
 			for (var i = 0; i <= data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
-				var charityName = data[i].charityName;
-				var charityURL = data[i].websiteURL;
-				var charityAddress =
+				charityTitle = data[i].charityName;
+				charityQCard.setAttribute("charityName", charityTitle);
+				charityURL = data[i].websiteURL;
+				charityQCard.setAttribute("charityUrl", charityURL);
+				charityAddress =
 					data[i].mailingAddress.streetAddress1 +
 					", " +
 					data[i].mailingAddress.streetAddress2 +
@@ -56,17 +62,15 @@ function fetchCharity() {
 					data[i].mailingAddress.stateOrProvince +
 					", " +
 					data[i].mailingAddress.postalCode;
+				charityQCard.setAttribute("charityAddress", charityAddress);
+
 				charityQCard.textContent =
-					charityName +
+					charityTitle +
 					" Website: " +
 					charityURL +
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
-
-				// charityCard.addEventListener("click", function () {
-				// 	console.log("a charityCard was clicked");
-				// 	});
 			}
 		});
 }
@@ -86,6 +90,7 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 	window.location.reload();
 });
 
+//main;
 //Routing api key = 56317e1080cb40469433a05f077bbb52
 var routingApiKey = "56317e1080cb40469433a05f077bbb52";
 var requestOptions = {
@@ -102,24 +107,43 @@ fetch(
 console.log(requestOptions);
 
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
-charityCard.addEventListener("click", function () {
+var charityViewed = [];
+charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
-	var charityInfo = {
-		name: name.value,
-		mission: mission.value,
-		url: url.value,
-		location: location.value,
-	};
-	localStorage.setItem("viewed", JSON.stringify(charityInfo));
+	console.log(event.target)
+	console.log(event.target.getAttribute("charityName"));
 
-	displayViewed();
+	var charityInfo = {
+		name: event.target.getAttribute("charityName"),
+		url: event.target.getAttribute("charityUrl"),
+		location: event.target.getAttribute("charityAddress")
+	};
+	if (charityInfo.name === null) {
+		return
+	}
+	charityViewed.unshift(charityInfo);
+	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 });
-//Display on some HTML element  (WORK IN PROGRESS)
+
+displayViewed();
+
+//Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-	document.getElementById("").htmlEl = charityInfo.name;
-	document.getElementById("").htmlEl = charityInfo.mission;
-	document.getElementById("").htmlEl = charityInfo.url;
-	document.getElementById("").htmlEl = charityInfo.location;
-}
+	for (var j = 0; j < 5; j++) {
+		charityName = charityInfo[j].name;
+		charityURL = charityInfo[j].url;
+		charityAddress = charityInfo[j].location;
+		var charityViewCard = document.createElement("p");
+		charityViewCard.setAttribute("class", "charityCard")
+		charityViewCard.textContent =
+			charityName +
+			" Website: " +
+			charityURL +
+			" Mailing Address: " +
+			charityAddress;
+		charityViewResult.append(charityViewCard);
+	}
+};
+
 // (WORK IN PROGRESS)
