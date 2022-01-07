@@ -49,7 +49,7 @@ function fetchCharity() {
 				charityQCard.setAttribute("class", "charityCard");
 				charityTitle = data[i].charityName;
 				charityQCard.setAttribute("charityName", charityTitle);
-			 	charityURL = data[i].websiteURL;
+				charityURL = data[i].websiteURL;
 				charityQCard.setAttribute("charityUrl", charityURL);
 				charityAddress =
 					data[i].mailingAddress.streetAddress1 +
@@ -61,7 +61,7 @@ function fetchCharity() {
 					data[i].mailingAddress.stateOrProvince +
 					", " +
 					data[i].mailingAddress.postalCode;
-					charityQCard.setAttribute("charityAddress", charityAddress);
+				charityQCard.setAttribute("charityAddress", charityAddress);
 
 				charityQCard.textContent =
 					charityTitle +
@@ -115,14 +115,15 @@ charityQResult.addEventListener("click", function (event) {
 	var charityInfo = {
 		name: event.target.getAttribute("charityName"),
 		url: event.target.getAttribute("charityUrl"),
-		location: event.target.getAttribute("charityAddress")};
+		location: event.target.getAttribute("charityAddress")
+	};
 
 
-		charityViewed.unshift(charityInfo);
+	charityViewed.unshift(charityInfo);
 
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 
-	
+
 });
 
 
@@ -132,25 +133,26 @@ displayViewed();
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
 	for (var j = 0; j < charityInfo.length; j++) {
-	charityName = charityInfo[j].name;
-	charityURL = charityInfo[j].url;
-	charityAddress = charityInfo[j].location;
-	var charityViewCard = document.createElement("p");
-	charityViewCard.textContent =
-	charityName +
-	" Website: " +
-	charityURL +
-	" Mailing Address: " +
-	charityAddress;
-charityViewResult.append(charityViewCard); }
+		charityName = charityInfo[j].name;
+		charityURL = charityInfo[j].url;
+		charityAddress = charityInfo[j].location;
+		var charityViewCard = document.createElement("p");
+		charityViewCard.textContent =
+			charityName +
+			" Website: " +
+			charityURL +
+			" Mailing Address: " +
+			charityAddress;
+		charityViewResult.append(charityViewCard);
+	}
 	var deleteButton = $('<td>')
-    .addClass('deleteButton')
-    .text('X');
-	
+		.addClass('deleteButton')
+		.text('X');
+
 }
 
 function deleteViewed(event) {
-	
+
 }
 
 htmlEl.addEventListener('click', 'deleteButton', deleteViewed());
