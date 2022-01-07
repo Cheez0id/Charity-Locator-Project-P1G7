@@ -1,8 +1,8 @@
 //Charity API ID and Key; The base URL for the Data API is:
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
+var charityQResult = document.getElementById("charitiesList");
 
-  
 // var charityQCity = document.getElementById("City").value;
 // console.log(charityQCity);
 
