@@ -3,7 +3,9 @@ var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var charityQResult = document.getElementById("charitiesList");
 var charityViewResult = document.getElementById("charitiesViewed");
-
+var charityTitle;
+var charityURL;
+var charityAddress;
 // var charityQCity = document.getElementById("City").value;
 // console.log(charityQCity);
 
@@ -39,11 +41,11 @@ var charityQuery =
 				for (var i = 0; i <= data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
-				var charityName = data[i].charityName;
-				charityQCard.setAttribute("charityName", charityName);
-			 	var charityURL = data[i].websiteURL;
-				 charityQCard.setAttribute("charityUrl", charityURL);
-				var charityAddress =
+				charityTitle = data[i].charityName;
+				charityQCard.setAttribute("charityName", charityTitle);
+			 	charityURL = data[i].websiteURL;
+				charityQCard.setAttribute("charityUrl", charityURL);
+				charityAddress =
 					data[i].mailingAddress.streetAddress1 +
 					", " +
 					data[i].mailingAddress.streetAddress2 +
@@ -56,16 +58,12 @@ var charityQuery =
 					charityQCard.setAttribute("charityAddress", charityAddress);
 
 				charityQCard.textContent =
-					charityName +
+					charityTitle +
 					" Website: " +
 					charityURL +
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
-				// charityQCard.addEventListener("click", function (event) {
-				// console.log("a charityCard was clicked");
-				// console.log(event.target);
-				// });
 			}
 		});
 }
@@ -99,17 +97,20 @@ fetch(
 	.catch((error) => console.log("error", error));
 
 console.log(requestOptions);
-
+var charityViewed = []
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
 	console.log(event.target.getAttribute("charityName"));
+
+
 	var charityInfo = {
-		name: charityName,
-		url: charityURL,
-		location: charityAddress};
-		var charityViewed = []
+		name: event.target.getAttribute("charityName"),
+		url: event.target.getAttribute("charityUrl"),
+		location: event.target.getAttribute("charityAddress")};
+
+
 		charityViewed.unshift(charityInfo);
 
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
@@ -123,10 +124,10 @@ displayViewed();
 //Display on some HTML element  (WORK IN PROGRESS)
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-
-	charityName = charityInfo[0].name;
-	charityURL = charityInfo[0].url;
-	charityAddress = charityInfo[0].location;
+	for (var j = 0; j < charityInfo.length; j++) {
+	charityName = charityInfo[j].name;
+	charityURL = charityInfo[j].url;
+	charityAddress = charityInfo[j].location;
 	var charityViewCard = document.createElement("p");
 	charityViewCard.textContent =
 	charityName +
@@ -134,7 +135,7 @@ function displayViewed() {
 	charityURL +
 	" Mailing Address: " +
 	charityAddress;
-charityViewResult.append(charityViewCard);
+charityViewResult.append(charityViewCard); }
 	var deleteButton = $('<td>')
     .addClass('deleteButton')
     .text('X');
