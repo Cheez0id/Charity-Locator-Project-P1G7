@@ -50,7 +50,6 @@ function fetchCharity() {
 			if (response.status === 404) {
 				var charityQCardNo = document.createElement("p");
 				charityQCardNo.setAttribute("class", "charityCardNo");
-				charityQCardNo.setAttribute("data-content", "NO RESULTS FOUND");
 				charityQCardNo.textContent = "No Results Found!";
 				charityQResult.append(charityQCardNo);
 			}
@@ -59,37 +58,37 @@ function fetchCharity() {
 		.then(function (data) {
 			
 			
-			function codeAddress(data) {
-				for (i = 0; i <= data.length; i++) {
-					var address = data[i].mailingAddress.streetAddress1;
-					console.log(address);
-					geocoder.geocode(
-						{
-							address: address,
-						},
-						function (results, status) {
-							if (status == "OK") {
-								console.log(results);
-								var lat = results[0].geometry.location.lat();
-								console.log(lat);
-								var lng = results[0].geometry.location.lng();
-								console.log(lng);
-								var location = { lat: lat, lng: lng }
-								// map.setCenter(results[0].geometry.location);
-								var marker = new google.maps.Marker({
-									map: map,
-									position: location
-								})
-							} else {
-								alert(
-									"Geocode was not successful for the following reason: " +
-										status
-								)
-							}
-						}
-					)
-				}
-			}
+			// function codeAddress(data) {
+			// 	for (i = 0; i <= data.length; i++) {
+			// 		var address = data[i].mailingAddress.streetAddress1;
+			// 		console.log(address);
+			// 		geocoder.geocode(
+			// 			{
+			// 				address: address,
+			// 			},
+			// 			function (results, status) {
+			// 				if (status == "OK") {
+			// 					console.log(results);
+			// 					var lat = results[0].geometry.location.lat();
+			// 					console.log(lat);
+			// 					var lng = results[0].geometry.location.lng();
+			// 					console.log(lng);
+			// 					var location = { lat: lat, lng: lng }
+			// 					// map.setCenter(results[0].geometry.location);
+			// 					var marker = new google.maps.Marker({
+			// 						map: map,
+			// 						position: location
+			// 					})
+			// 				} else {
+			// 					alert(
+			// 						"Geocode was not successful for the following reason: " +
+			// 							status
+			// 					)
+			// 				}
+			// 			}
+			// 		)
+			// 	}
+			// }
 			codeAddress(data)
 
 			for (var i = 0; i <= data.length; i++) {
