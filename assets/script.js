@@ -100,8 +100,9 @@ function displayViewed() {
 }
 // (WORK IN PROGRESS)
 
-//SET MAP OPTIONS
 
+//GOOGLE MAPS WORK IN PROGRESS
+//SET MAP OPTIONS
 var mylatlng = {
 	lat: 33.7490,
 	lng: 84.3880
