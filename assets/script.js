@@ -139,43 +139,43 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 });
 
 // //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
-// var charityViewed = [];
-// charityQResult.addEventListener("click", function (event) {
-// 	console.log("a charityCard was clicked");
-// 	console.log(event.target);
-// 	console.log(event.target.getAttribute("charityName"));
+var charityViewed = [];
+charityQResult.addEventListener("click", function (event) {
+	console.log("a charityCard was clicked");
+	console.log(event.target);
+	console.log(event.target.getAttribute("charityName"));
 
-// 	var charityInfo = {
-// 		name: event.target.getAttribute("charityName"),
-// 		url: event.target.getAttribute("charityUrl"),
-// 		location: event.target.getAttribute("charityAddress"),
-// 	};
-// 	if (charityInfo.name === null) {
-// 		return;
-// 	}
-// 	charityViewed.unshift(charityInfo);
-// 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
-// });
+	var charityInfo = {
+		name: event.target.getAttribute("charityName"),
+		url: event.target.getAttribute("charityUrl"),
+		location: event.target.getAttribute("charityAddress"),
+	};
+	if (charityInfo.name === null) {
+		return;
+	}
+	charityViewed.unshift(charityInfo);
+	localStorage.setItem("viewed", JSON.stringify(charityViewed));
+});
 
-// displayViewed();
+displayViewed();
 
-// //Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
-// function displayViewed() {
-// 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-// 	for (var j = 0; j < 5; j++) {
-// 		charityName = charityInfo[j].name;
-// 		charityURL = charityInfo[j].url;
-// 		charityAddress = charityInfo[j].location;
-// 		var charityViewCard = document.createElement("p");
-// 		charityViewCard.setAttribute("class", "charityCard");
-// 		charityViewCard.textContent =
-// 			charityName +
-// 			" Website: " +
-// 			charityURL +
-// 			" Mailing Address: " +
-// 			charityAddress;
-// 		charityViewResult.append(charityViewCard);
-// 	}
-// }
+//Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
+function displayViewed() {
+	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
+	for (var j = 0; j < 5; j++) {
+		charityName = charityInfo[j].name;
+		charityURL = charityInfo[j].url;
+		charityAddress = charityInfo[j].location;
+		var charityViewCard = document.createElement("p");
+		charityViewCard.setAttribute("class", "charityCard");
+		charityViewCard.textContent =
+			charityName +
+			" Website: " +
+			charityURL +
+			" Mailing Address: " +
+			charityAddress;
+		charityViewResult.append(charityViewCard);
+	}
+}
 
 // // (WORK IN PROGRESS)
