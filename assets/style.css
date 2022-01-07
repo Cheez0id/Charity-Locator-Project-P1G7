@@ -16,3 +16,14 @@
   float: right;
 }
 
+.charityCard{
+  margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 60%;
+    border: 5px solid rgb(83, 52, 133);
+  background-color: antiquewhite;
+    font-size: 125%;
+    padding: 25px;
+}
