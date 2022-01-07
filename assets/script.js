@@ -58,6 +58,7 @@ function fetchCharity() {
 		})
 		.then(function (data) {
 			
+			
 			function codeAddress(data) {
 				for (i = 0; i <= data.length; i++) {
 					var address = data[i].mailingAddress.streetAddress1;
@@ -73,23 +74,23 @@ function fetchCharity() {
 								console.log(lat);
 								var lng = results[0].geometry.location.lng();
 								console.log(lng);
-								var location = { lat: lat, lng: lng };
+								var location = { lat: lat, lng: lng }
 								// map.setCenter(results[0].geometry.location);
 								var marker = new google.maps.Marker({
 									map: map,
-									position: location,
-								});
+									position: location
+								})
 							} else {
 								alert(
 									"Geocode was not successful for the following reason: " +
 										status
-								);
+								)
 							}
 						}
-					);
+					)
 				}
 			}
-			codeAddress(data);
+			codeAddress(data)
 
 			for (var i = 0; i <= data.length; i++) {
 				var charityQCard = document.createElement("p");
