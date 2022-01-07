@@ -108,6 +108,7 @@ console.log(requestOptions);
 
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS) GET RID OF NULL
 var charityViewed = [];
+charityViewed.unshift(localStorage.getItem("viewed"));
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
@@ -118,7 +119,9 @@ charityQResult.addEventListener("click", function (event) {
 		url: event.target.getAttribute("charityUrl"),
 		location: event.target.getAttribute("charityAddress")
 	};
-
+	if (charityInfo.name === null) {
+		return
+	}
 	charityViewed.unshift(charityInfo);
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 });
@@ -133,6 +136,7 @@ function displayViewed() {
 		charityURL = charityInfo[j].url;
 		charityAddress = charityInfo[j].location;
 		var charityViewCard = document.createElement("p");
+		charityViewCard.setAttribute("class", "charityCard")
 		charityViewCard.textContent =
 			charityName +
 			" Website: " +
