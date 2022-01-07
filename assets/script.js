@@ -16,16 +16,13 @@ function initMap() {
 		});
 }
 
-
 var charityQResult = document.getElementById("charitiesList");
 var charityViewResult = document.getElementById("charitiesViewed");
 var charityTitle;
 var charityURL;
 var charityAddress;
 var charityQCard;
-
-
-
+var charityQState;
 
 //a function that when called will run a query on charity API
 function fetchCharity() {
@@ -62,6 +59,7 @@ function fetchCharity() {
 			return response.json();
 		})
 		.then(function (data) {
+
 			console.log(data);
 
 			// codeAddress(data);
@@ -169,20 +167,26 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 });
 
 
-//When the Charity is clicked on, store in local   (WORK IN PROGRESS)
+//CLEAR BUTTON TO REFRESH PAGE
+document.getElementById("clearBtn").addEventListener("click", function () {
+	console.log("a button was clicked");
+	window.location.reload();
+});
+
+// //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
 var charityViewed = [];
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
-	console.log(event.target)
+	console.log(event.target);
 	console.log(event.target.getAttribute("charityName"));
 
 	var charityInfo = {
 		name: event.target.getAttribute("charityName"),
 		url: event.target.getAttribute("charityUrl"),
-		location: event.target.getAttribute("charityAddress")
+		location: event.target.getAttribute("charityAddress"),
 	};
 	if (charityInfo.name === null) {
-		return
+		return;
 	}
 	charityViewed.unshift(charityInfo);
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
@@ -198,7 +202,7 @@ function displayViewed() {
 		charityURL = charityInfo[j].url;
 		charityAddress = charityInfo[j].location;
 		var charityViewCard = document.createElement("p");
-		charityViewCard.setAttribute("class", "charityCard")
+		charityViewCard.setAttribute("class", "charityCard");
 		charityViewCard.textContent =
 			charityName +
 			" Website: " +
@@ -207,11 +211,10 @@ function displayViewed() {
 			charityAddress;
 		charityViewResult.append(charityViewCard);
 	}
-};
-
-// (WORK IN PROGRESS)
+}
 
 
 
+// // (WORK IN PROGRESS)
 
 
