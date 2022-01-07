@@ -1,10 +1,6 @@
 //Charity API ID and Key; The base URL for the Data API is:
-var charityQState = "GA";
-var charityQCity = "";
-var charityQsearch = "food";
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
-var charityQResult = document.getElementById("charitiesList");
 var geocoder;
 var map; 
 
@@ -21,30 +17,52 @@ function initMap() {
   }
 
 
-var charityQuery =
-	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
-	app_id +
-	"&app_key=" +
-	app_key +
-	"&search=" +
-	charityQsearch +
-	"&fundraisingOrgs=false&state=" +
-	charityQState +
-	"&city=" +
-	charityQCity +
-	"&scopeOfWork=ALL";
+var charityQResult = document.getElementById("charitiesList");
+var charityViewResult = document.getElementById("charitiesViewed");
+var charityTitle;
+var charityURL;
+var charityAddress;
+var charityQCard;
+
 
 
 
 //a function that when called will run a query on charity API
 function fetchCharity() {
+	var charityQState = document.getElementById("State").value;
+	var charityQCity = document.getElementById("City").value;
+	var charityQZip = document.getElementById("zipCode").value;
+	var charityQsearch = "food";
+	var charityQuery =
+		"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
+		app_id +
+		"&app_key=" +
+		app_key +
+		"&search=" +
+		charityQsearch +
+		"&fundraisingOrgs=false&state=" +
+		charityQState +
+		"&city=" +
+		charityQCity +
+		"&zip=" +
+		charityQZip +
+		"&scopeOfWork=ALL";
+
 	fetch(charityQuery)
 		.then(function (response) {
+			console.log(response);
+			if (response.status === 404) {
+				var charityQCardNo = document.createElement("p");
+				charityQCardNo.setAttribute("class", "charityCardNo");
+				charityQCardNo.setAttribute("data-content", "NO RESULTS FOUND");
+				charityQCardNo.textContent = "No Results Found!";
+				charityQResult.append(charityQCardNo);
+			}
 			return response.json();
 		})
 		.then(function (data) {
-			console.log("hello! here is some data");
 			console.log(data);
+
 			function codeAddress (data){
 				for (i = 0; i <= data.length; i++){
 
@@ -76,12 +94,16 @@ function fetchCharity() {
 			}
 			codeAddress(data);
 
-				for (var i = 0; i < data.length; i++) {
+
+			for (var i = 0; i <= data.length; i++) {
+
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
-				var charityName = data[i].charityName;
-				var charityURL = data[i].websiteURL;
-				var charityAddress =
+				charityTitle = data[i].charityName;
+				charityQCard.setAttribute("charityName", charityTitle);
+				charityURL = data[i].websiteURL;
+				charityQCard.setAttribute("charityUrl", charityURL);
+				charityAddress =
 					data[i].mailingAddress.streetAddress1 +
 					", " +
 					data[i].mailingAddress.streetAddress2 +
@@ -91,21 +113,19 @@ function fetchCharity() {
 					data[i].mailingAddress.stateOrProvince +
 					", " +
 					data[i].mailingAddress.postalCode;
+				charityQCard.setAttribute("charityAddress", charityAddress);
+
 				charityQCard.textContent =
-					charityName +
+					charityTitle +
 					" Website: " +
 					charityURL +
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
-				// charityCard.addEventListener("click", function () {
-				// 	console.log("a charityCard was clicked");
-				// 	});
 			}
 		});
 }
-console.log(charityQResult.value);
-//TODO: pull location details from charity api (as well as other elements we will display)
+
 
 //calling the function on click of a blue button
 // then running fetchCharity();
@@ -122,28 +142,46 @@ document.getElementById("inputForm").addEventListener("submit", function (event)
 		});
 
 
-
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
-charityCard.addEventListener("click", function () {
+var charityViewed = [];
+charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
-	var charityInfo = {
-		name: name.value,
-		mission: mission.value,
-		url: url.value,
-		location: location.value,
-	};
-	localStorage.setItem("viewed", JSON.stringify(charityInfo));
+	console.log(event.target)
+	console.log(event.target.getAttribute("charityName"));
 
-	displayViewed();
+	var charityInfo = {
+		name: event.target.getAttribute("charityName"),
+		url: event.target.getAttribute("charityUrl"),
+		location: event.target.getAttribute("charityAddress")
+	};
+	if (charityInfo.name === null) {
+		return
+	}
+	charityViewed.unshift(charityInfo);
+	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 });
-//Display on some HTML element  (WORK IN PROGRESS)
+
+displayViewed();
+
+//Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-	document.getElementById("").htmlEl = charityInfo.name;
-	document.getElementById("").htmlEl = charityInfo.mission;
-	document.getElementById("").htmlEl = charityInfo.url;
-	document.getElementById("").htmlEl = charityInfo.location;
-}
+	for (var j = 0; j < 5; j++) {
+		charityName = charityInfo[j].name;
+		charityURL = charityInfo[j].url;
+		charityAddress = charityInfo[j].location;
+		var charityViewCard = document.createElement("p");
+		charityViewCard.setAttribute("class", "charityCard")
+		charityViewCard.textContent =
+			charityName +
+			" Website: " +
+			charityURL +
+			" Mailing Address: " +
+			charityAddress;
+		charityViewResult.append(charityViewCard);
+	}
+};
+
 // (WORK IN PROGRESS)
 
 

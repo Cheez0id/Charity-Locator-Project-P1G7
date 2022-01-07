@@ -34,6 +34,7 @@
 	<!-- GRID CONTAINER -->
 	<body>
 
+
 		<div>
 		<form id="inputForm">
 			<div class="form-group">
@@ -47,6 +48,21 @@
 			<div class="form-group">
 				<label for="zipCode">Zip Code</label>
 				<input type="address" class="form-control" id="zipCode" placeholder="Enter Zip Code">
+       </div>
+		<div class = "charityCard">
+		<form id="inputForm">
+			<div class="form-group">
+				<label for="City">City</label>
+				<input type="search" class="form-control" id="City" placeholder="Enter City">
+			</div>
+			<div class="form-group">
+				<label for="State">State</label>
+				<input type="search" class="form-control" id="State" placeholder="Enter State">
+			</div>
+			<div class="form-group">
+				<label for="zipCode">Zip Code</label>
+				<input type="search" class="form-control" id="zipCode" placeholder="Enter Zip Code">
+
 			</div>
 			<button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
 			<button type="clear" class="btn btn-primary" id="clearBtn">Clear</button>
@@ -57,8 +73,7 @@
 		<div class="container-fluid">
 			<!--HEADER-->
 			<div class="row">
-				<div class="col-lg-12"><header>lots of stuff!!!</header></div>
-
+			
 				<!--CHARITY INFO AREA-->
 
 				<div class="charityDiv">
@@ -68,10 +83,10 @@
 				<!--MOST RECENT SEARCHES-->
 				<div class="col-lg-3 mostRecent">
 					<h3 class="col-lg-3">Most recent searches</h3>
+						<div id="charitiesViewed"></div>
 				</div>
 			</div>
 		</div>
-
 		
 		<div id="map">
 
@@ -86,6 +101,9 @@
 	
 		
 		
+
+		<!-- JAVASCRIPT LINK -->
+		<script src="./assets/script.js"></script>
 	</body>
 
 </html>
