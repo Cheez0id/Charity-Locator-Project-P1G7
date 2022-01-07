@@ -1,5 +1,5 @@
 //Charity API ID and Key; The base URL for the Data API is:
-var charityQState = "";
+var charityQState = "GA";
 var charityQCity = "";
 var charityQsearch = "food";
 var app_id = "97037ae1";
