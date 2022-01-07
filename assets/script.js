@@ -39,9 +39,11 @@ function fetchCharity() {
 			console.log(data);
 				for (var i = 0; i < data.length; i++) {
 				charityQCard = document.createElement("p");
-				charityQCard.setAttribute("class", "charityCard");
+				charityQCard.setAttribute("class", "charityCard" );
 				charityName = data[i].charityName;
+				charityQCard.setAttribute("charityName", charityName);
 			 	charityURL = data[i].websiteURL;
+				 charityQCard.setAttribute("charityUrl", charityURL);
 				charityAddress =
 					data[i].mailingAddress.streetAddress1 +
 					", " +
@@ -52,6 +54,8 @@ function fetchCharity() {
 					data[i].mailingAddress.stateOrProvince +
 					", " +
 					data[i].mailingAddress.postalCode;
+					charityQCard.setAttribute("charityAddress", charityAddress);
+
 				charityQCard.textContent =
 					charityName +
 					" Website: " +
@@ -101,24 +105,29 @@ console.log(requestOptions);
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
+	console.log(event.target.getAttribute("charityName"));
 	var charityInfo = {
 		name: charityName,
 		url: charityURL,
 		location: charityAddress};
+		var charityViewed = []
+		charityViewed.unshift(charityInfo);
 
-
-	localStorage.setItem("viewed", JSON.stringify(charityInfo));
+	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 
 	
 });
+
+
 displayViewed();
 
 //Display on some HTML element  (WORK IN PROGRESS)
 function displayViewed() {
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
-	charityName = charityInfo.name;
-	charityURL = charityInfo.url;
-	charityAddress = charityInfo.location;
+
+	charityName = charityInfo[0].name;
+	charityURL = charityInfo[0].url;
+	charityAddress = charityInfo[0].location;
 	var charityViewCard = document.createElement("p");
 	charityViewCard.textContent =
 	charityName +
@@ -130,6 +139,7 @@ charityViewResult.append(charityViewCard);
 	var deleteButton = $('<td>')
     .addClass('deleteButton')
     .text('X');
+	
 }
 
 function deleteViewed(event) {
