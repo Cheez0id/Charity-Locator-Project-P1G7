@@ -11,34 +11,40 @@ var charityAddress;
 
 //a function that when called will run a query on charity API
 function fetchCharity() {
-var charityQState = document.getElementById("State").value;
-var charityQCity = document.getElementById("City").value;
-var charityQZip= document.getElementById("zipCode").value;
-var charityQsearch = "food";
-var charityQuery =
-	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
-	app_id +
-	"&app_key=" +
-	app_key +
-	"&search=" +
-	charityQsearch +
-	"&fundraisingOrgs=false&state=" +
-	charityQState +
-	"&city=" +
-	charityQCity +
-	"&zip=" +
-	charityQZip +
-	"&scopeOfWork=ALL"
-	;
-	console.log(charityQCity);
+	var charityQState = document.getElementById("State").value;
+	var charityQCity = document.getElementById("City").value;
+	var charityQZip = document.getElementById("zipCode").value;
+	var charityQsearch = "food";
+	var charityQuery =
+		"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
+		app_id +
+		"&app_key=" +
+		app_key +
+		"&search=" +
+		charityQsearch +
+		"&fundraisingOrgs=false&state=" +
+		charityQState +
+		"&city=" +
+		charityQCity +
+		"&zip=" +
+		charityQZip +
+		"&scopeOfWork=ALL";
 
 	fetch(charityQuery)
 		.then(function (response) {
+			console.log(response);
+			if (response.status === 404) {
+				var charityQCardNo = document.createElement("p");
+				charityQCardNo.setAttribute("class", "charityCardNo");
+				charityQCardNo.setAttribute("data-content", "NO RESULTS FOUND");
+				charityQCardNo.textContent = "No Results Found!";
+				charityQResult.append(charityQCardNo);
+			}
 			return response.json();
 		})
-			.then(function (data) {
-				console.log(data);
-				for (var i = 0; i <= data.length; i++) {
+		.then(function (data) {
+			console.log(data);
+			for (var i = 0; i <= data.length; i++) {
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
 				charityTitle = data[i].charityName;
@@ -64,23 +70,31 @@ var charityQuery =
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
+<<<<<<< HEAD
+=======
+
+				// charityCard.addEventListener("click", function () {
+				// 	console.log("a charityCard was clicked");
+				// 	});
+>>>>>>> 8ddaa34d00a75e987ab3115013e2195273f98541
 			}
 		});
 }
 
-
 //calling the function on submitting the form then running fetchCharity();
-document.getElementById("inputForm").addEventListener("submit", function (event) {
-	event.preventDefault();
-	console.log("a button was clicked");
-	fetchCharity();
+document
+	.getElementById("inputForm")
+	.addEventListener("submit", function (event) {
+		event.preventDefault();
+		console.log("a button was clicked");
+		fetchCharity();
 	});
 
-	//CLEAR BUTTON TO REFRESH PAGE
-	document.getElementById("clearBtn").addEventListener("click", function () {
-		console.log("a button was clicked");
-		window.location.reload();
-		});
+//CLEAR BUTTON TO REFRESH PAGE
+document.getElementById("clearBtn").addEventListener("click", function () {
+	console.log("a button was clicked");
+	window.location.reload();
+});
 
 //main;
 //Routing api key = 56317e1080cb40469433a05f077bbb52
