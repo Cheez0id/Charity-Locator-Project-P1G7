@@ -1,14 +1,31 @@
 //Charity API ID and Key; The base URL for the Data API is:
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
+var geocoder;
+var map; 
+
+
+function initMap() {
+	geocoder = new google.maps.Geocoder();
+	mapDiv = document.getElementById('map');
+	console.log(mapDiv);
+	map = new google.maps.Map(document.getElementById("map"),
+	{
+  center: {lat: 33.7490, lng: -84.3880 },
+  zoom: 8
+  });
+  }
+
+
 var charityQResult = document.getElementById("charitiesList");
 var charityViewResult = document.getElementById("charitiesViewed");
 var charityTitle;
 var charityURL;
 var charityAddress;
 var charityQCard;
-// var charityQCity = document.getElementById("City").value;
-// console.log(charityQCity);
+
+
+
 
 //a function that when called will run a query on charity API
 function fetchCharity() {
@@ -45,7 +62,41 @@ function fetchCharity() {
 		})
 		.then(function (data) {
 			console.log(data);
+
+			function codeAddress (data){
+				for (i = 0; i <= data.length; i++){
+
+				
+				var address = data[i].mailingAddress.streetAddress1
+				console.log(address);
+				geocoder.geocode({
+					"address": address
+				}, function (results, status){
+					if (status == 'OK') {
+							console.log(results);
+							var lat = results[0].geometry.location.lat();
+							console.log(lat);
+							var lng = results[0].geometry.location.lng();
+							console.log(lng);
+							var location = {lat: lat, lng: lng }
+						// map.setCenter(results[0].geometry.location);
+						var marker = new google.maps.Marker({
+							map: map,
+							position: location
+						});
+					  } else {
+						alert('Geocode was not successful for the following reason: ' + status);
+					  }
+				}
+				)
+			}
+				
+			}
+			codeAddress(data);
+
+
 			for (var i = 0; i <= data.length; i++) {
+
 				var charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
 				charityTitle = data[i].charityName;
@@ -75,36 +126,21 @@ function fetchCharity() {
 		});
 }
 
-//calling the function on submitting the form then running fetchCharity();
-document
-	.getElementById("inputForm")
-	.addEventListener("submit", function (event) {
-		event.preventDefault();
-		console.log("a button was clicked");
-		fetchCharity();
+
+//calling the function on click of a blue button
+// then running fetchCharity();
+document.getElementById("inputForm").addEventListener("submit", function (event) {
+	event.preventDefault();
+	console.log("a button was clicked");
+	fetchCharity();
 	});
 
-//CLEAR BUTTON TO REFRESH PAGE
-document.getElementById("clearBtn").addEventListener("click", function () {
-	console.log("a button was clicked");
-	window.location.reload();
-});
+	//CLEAR BUTTON TO REFRESH PAGE
+	document.getElementById("clearBtn").addEventListener("click", function () {
+		console.log("a button was clicked");
+		window.location.reload();
+		});
 
-//main;
-//Routing api key = 56317e1080cb40469433a05f077bbb52
-var routingApiKey = "56317e1080cb40469433a05f077bbb52";
-var requestOptions = {
-	method: "GET",
-};
-fetch(
-	"https://api.geoapify.com/v1/routing?waypoints=50.96209827745463%2C4.414458883409225%7C50.429137079078345%2C5.00088081232559&mode=drive&apiKey=56317e1080cb40469433a05f077bbb52",
-	requestOptions
-)
-	.then((response) => response.json())
-	.then((result) => console.log(result))
-	.catch((error) => console.log("error", error));
-
-console.log(requestOptions);
 
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
 var charityViewed = [];
@@ -147,3 +183,8 @@ function displayViewed() {
 };
 
 // (WORK IN PROGRESS)
+
+
+
+
+ 
