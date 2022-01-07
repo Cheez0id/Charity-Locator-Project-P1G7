@@ -40,3 +40,8 @@
 	padding: 25px;
   content: "No Results Found";
 }
+
+#map {
+	width: 100%;
+	height: 400px;
+}
