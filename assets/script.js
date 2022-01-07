@@ -1,12 +1,21 @@
 //Charity API ID and Key; The base URL for the Data API is:
-var charityQState = "";
-var charityQCity = "";
-var charityQZip= "";
-var charityQsearch = "food";
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var charityQResult = document.getElementById("charitiesList");
+<<<<<<< HEAD
 var charityViewResult = document.getElementById("charitiesViewed");
+=======
+
+// var charityQCity = document.getElementById("City").value;
+// console.log(charityQCity);
+
+//a function that when called will run a query on charity API
+function fetchCharity() {
+var charityQState = document.getElementById("State").value;
+var charityQCity = document.getElementById("City").value;
+var charityQZip= document.getElementById("zipCode").value;
+var charityQsearch = "food";
+>>>>>>> c1576043d6912e08eb92e435d547036acd1b02d7
 var charityQuery =
 	"https://api.data.charitynavigator.org/v2/Organizations?app_id=" +
 	app_id +
@@ -22,7 +31,9 @@ var charityQuery =
 	charityQZip +
 	"&scopeOfWork=ALL"
 	;
+	console.log(charityQCity);
 
+<<<<<<< HEAD
 var charityURL;
 var charityName;
 var charityAddress;
@@ -30,10 +41,13 @@ var charityQCard;
 
 //a function that when called will run a query on charity API
 function fetchCharity() {
+=======
+>>>>>>> c1576043d6912e08eb92e435d547036acd1b02d7
 	fetch(charityQuery)
 		.then(function (response) {
 			return response.json();
 		})
+<<<<<<< HEAD
 		.then(function (data) {
 			console.log("hello! here is some data");
 			console.log(data);
@@ -45,6 +59,16 @@ function fetchCharity() {
 			 	charityURL = data[i].websiteURL;
 				 charityQCard.setAttribute("charityUrl", charityURL);
 				charityAddress =
+=======
+			.then(function (data) {
+				console.log(data);
+				for (var i = 0; i <= data.length; i++) {
+				var charityQCard = document.createElement("p");
+				charityQCard.setAttribute("class", "charityCard");
+				var charityName = data[i].charityName;
+				var charityURL = data[i].websiteURL;
+				var charityAddress =
+>>>>>>> c1576043d6912e08eb92e435d547036acd1b02d7
 					data[i].mailingAddress.streetAddress1 +
 					", " +
 					data[i].mailingAddress.streetAddress2 +
