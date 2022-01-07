@@ -70,13 +70,6 @@ function fetchCharity() {
 					" Mailing Address: " +
 					charityAddress;
 				charityQResult.append(charityQCard);
-<<<<<<< HEAD
-=======
-
-				// charityCard.addEventListener("click", function () {
-				// 	console.log("a charityCard was clicked");
-				// 	});
->>>>>>> 8ddaa34d00a75e987ab3115013e2195273f98541
 			}
 		});
 }
