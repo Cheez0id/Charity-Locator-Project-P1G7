@@ -1,6 +1,7 @@
 //Charity API ID and Key; The base URL for the Data API is:
 var charityQState = "";
 var charityQCity = "";
+var charityQZip= "";
 var charityQsearch = "food";
 var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
@@ -17,11 +18,16 @@ var charityQuery =
 	charityQState +
 	"&city=" +
 	charityQCity +
-	"&scopeOfWork=ALL";
+	"&zip=" +
+	charityQZip +
+	"&scopeOfWork=ALL"
+	;
+
 var charityURL;
 var charityName;
 var charityAddress;
 var charityQCard;
+
 //a function that when called will run a query on charity API
 function fetchCharity() {
 	fetch(charityQuery)
@@ -60,11 +66,9 @@ function fetchCharity() {
 			}
 		});
 }
-console.log(charityQResult.value);
-//TODO: pull location details from charity api (as well as other elements we will display)
 
-//calling the function on click of a blue button
-// then running fetchCharity();
+
+//calling the function on submitting the form then running fetchCharity();
 document.getElementById("inputForm").addEventListener("submit", function (event) {
 	event.preventDefault();
 	console.log("a button was clicked");
