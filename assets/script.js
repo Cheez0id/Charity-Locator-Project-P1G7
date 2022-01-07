@@ -21,6 +21,7 @@ var charityQuery =
 var charityURL;
 var charityName;
 var charityAddress;
+var charityQCard;
 //a function that when called will run a query on charity API
 function fetchCharity() {
 	fetch(charityQuery)
@@ -31,7 +32,7 @@ function fetchCharity() {
 			console.log("hello! here is some data");
 			console.log(data);
 				for (var i = 0; i < data.length; i++) {
-				var charityQCard = document.createElement("p");
+				charityQCard = document.createElement("p");
 				charityQCard.setAttribute("class", "charityCard");
 				charityName = data[i].charityName;
 			 	charityURL = data[i].websiteURL;
@@ -96,11 +97,13 @@ console.log(requestOptions);
 charityQResult.addEventListener("click", function (event) {
 	console.log("a charityCard was clicked");
 	console.log(event.target)
+	var j = 0
 	var charityInfo = {
-		name: charityName.value,
-		url: charityURL.value,
-		location: charityAddress.value};
+		name: charityName,
+		url: charityURL,
+		location: charityAddress};
 	localStorage.setItem("viewed", JSON.stringify(charityInfo));
+	j++;
 
 	displayViewed();
 });
