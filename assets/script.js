@@ -75,20 +75,7 @@ document.getElementById("inputForm").addEventListener("submit", function (event)
 		window.location.reload();
 		});
 
-//Routing api key = 56317e1080cb40469433a05f077bbb52
-var routingApiKey = "56317e1080cb40469433a05f077bbb52";
-var requestOptions = {
-	method: "GET",
-};
-fetch(
-	"https://api.geoapify.com/v1/routing?waypoints=50.96209827745463%2C4.414458883409225%7C50.429137079078345%2C5.00088081232559&mode=drive&apiKey=56317e1080cb40469433a05f077bbb52",
-	requestOptions
-)
-	.then((response) => response.json())
-	.then((result) => console.log(result))
-	.catch((error) => console.log("error", error));
 
-console.log(requestOptions);
 
 //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
 charityCard.addEventListener("click", function () {
@@ -112,3 +99,49 @@ function displayViewed() {
 	document.getElementById("").htmlEl = charityInfo.location;
 }
 // (WORK IN PROGRESS)
+
+//SET MAP OPTIONS
+
+var mylatlng = {
+	lat: 33.7490,
+	lng: 84.3880
+};
+
+var mapOptions = {
+	center: mylatlng,
+	zoom: 12,
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions)
+
+// directions service object to use the route method and get a result for our requests
+var directionsService = new google.maps.DirectionsService();
+
+//Direction render object which we will use to display the root. 
+directionsDisplay = new google.maps.DirectionsRender();
+
+// bind the DirectionsRenderer to the map
+directionsDisplay.setMap(map);
+
+ function calcRoute(){
+	 //create a request 
+	 var request = {
+		 origin: document.getElementById("from").value,
+		 destination: document.getElementById("to").value,
+		 travelMode: google.maps.TravelMode.DRIVING, //you can change this to WALKING, BYCYLING, and  TRANSIT
+		 unitSystem: google.maps.UnitSystem.IMPERIAL
+	 }
+	 //pass the request to the root method 
+	 directionsService.route(request, (result, status) => {
+		 if (status === google.maps.DirectionStatus.Ok){
+			 //get distance and time
+			 const output= document.querySelector("#output");
+			 output.innerHTML = "<div class='alert-info'>  From: " + document.getElementById("from").value + "  .<br />To: " + document.getElementById("to").value +  ".<br /> Driving distance: " + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ". </div>"
+
+			 //display route
+
+			 //********PICK UP HERE */
+		 }
+	 })
+ }
