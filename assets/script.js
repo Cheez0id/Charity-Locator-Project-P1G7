@@ -189,6 +189,7 @@ charityQResult.addEventListener("click", function (event) {
 	charityViewed.unshift(charityInfo);
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 	displayViewed();
+	window.open(charityInfo.url, "_blank");
 });
 
 //When the Charity in Recent is clicked on
@@ -205,6 +206,7 @@ charityViewResult.addEventListener("click", function (event) {
 	charityViewed.unshift(charityInfo);
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
 	displayViewed();
+	window.open(charityInfo.url, "_blank");
 });
 
 //Display on the Recent Viewed
