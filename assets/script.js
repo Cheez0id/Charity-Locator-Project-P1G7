@@ -52,7 +52,6 @@ function fetchCharity() {
 			if (response.status === 404) {
 				var charityQCardNo = document.createElement("p");
 				charityQCardNo.setAttribute("class", "charityCardNo");
-				charityQCardNo.setAttribute("data-content", "NO RESULTS FOUND");
 				charityQCardNo.textContent = "No Results Found!";
 				charityQResult.append(charityQCardNo);
 			}
