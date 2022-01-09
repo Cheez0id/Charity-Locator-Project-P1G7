@@ -193,7 +193,23 @@ charityQResult.addEventListener("click", function (event) {
 	displayViewed();
 });
 
+charityViewResult.addEventListener("click", function (event) {
+	console.log("a charityCard was clicked");
+	console.log(event.target);
+	console.log(event.target.getAttribute("charityName"));
 
+	var charityInfo = {
+		name: event.target.getAttribute("charityName"),
+		url: event.target.getAttribute("charityUrl"),
+		location: event.target.getAttribute("charityAddress"),
+	};
+	if (charityInfo.name === null) {
+		return;
+	}
+	charityViewed.unshift(charityInfo);
+	localStorage.setItem("viewed", JSON.stringify(charityViewed));
+	displayViewed();
+});
 
 //Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
 function displayViewed() {
@@ -205,6 +221,9 @@ function displayViewed() {
 		charityAddress = charityInfo[j].location;
 		var charityViewCard = document.createElement("p");
 		charityViewCard.setAttribute("class", "charityCard");
+		charityViewCard.setAttribute("charityName", charityName);
+		charityViewCard.setAttribute("charityUrl", charityURL);
+		charityViewCard.setAttribute("charityAddress", charityAddress);
 		charityViewCard.textContent =
 			charityName +
 			" Website: " +
