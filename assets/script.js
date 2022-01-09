@@ -173,13 +173,10 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 	window.location.reload();
 });
 
-// //When the Charity is clicked on, store in local   (WORK IN PROGRESS)
+//When the Charity in Results is clicked on
 var charityViewed = [];
 charityQResult.addEventListener("click", function (event) {
-	console.log("a charityCard was clicked");
 	console.log(event.target);
-	console.log(event.target.getAttribute("charityName"));
-
 	var charityInfo = {
 		name: event.target.getAttribute("charityName"),
 		url: event.target.getAttribute("charityUrl"),
@@ -193,11 +190,9 @@ charityQResult.addEventListener("click", function (event) {
 	displayViewed();
 });
 
+//When the Charity in Recent is clicked on
 charityViewResult.addEventListener("click", function (event) {
-	console.log("a charityCard was clicked");
 	console.log(event.target);
-	console.log(event.target.getAttribute("charityName"));
-
 	var charityInfo = {
 		name: event.target.getAttribute("charityName"),
 		url: event.target.getAttribute("charityUrl"),
@@ -211,7 +206,7 @@ charityViewResult.addEventListener("click", function (event) {
 	displayViewed();
 });
 
-//Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
+//Display on the Recent Viewed
 function displayViewed() {
 	charityViewResult.innerHTML = "";
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
@@ -234,6 +229,7 @@ function displayViewed() {
 	}
 }
 
+//Store in the Local Storage
 function fillStorage () {
 	var storage = JSON.parse(localStorage.getItem("viewed"));
 	if (storage !== null) {
@@ -242,7 +238,5 @@ function fillStorage () {
 	displayViewed();
 }
 
+//Run on loading the page
 fillStorage();
-// // (WORK IN PROGRESS)
-
-
