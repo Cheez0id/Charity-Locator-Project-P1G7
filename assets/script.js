@@ -3,7 +3,8 @@ var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var geocoder;
 var map;
-
+// var charityQState = "GA";
+// If you get an alert error code that says you have reached qa query limit, uncomment the code above
 
 function initMap() {
 	geocoder = new google.maps.Geocoder();
@@ -212,8 +213,5 @@ function displayViewed() {
 	}
 }
 
-
-
-// // (WORK IN PROGRESS)
 
 
