@@ -3,7 +3,8 @@ var app_id = "97037ae1";
 var app_key = "3db6711569ba31d8872d4b3811e6e901";
 var geocoder;
 var map;
-
+// var charityQState = "GA";
+// If you get an alert error code that says you have reached qa query limit, uncomment the code above
 
 function initMap() {
 	geocoder = new google.maps.Geocoder();
@@ -123,33 +124,33 @@ function displayEverything(data) {
 	}
 };
 
-function codeAddress(data) {
-	console.log("mappy");
-	for (var k = 0; k <= data.length; k++) {
-		var address = data[k].mailingAddress.streetAddress1
-		console.log(address);
-		geocoder.geocode({
-			"address": address
-		}, function (results, status) {
-			if (status == 'OK') {
-				console.log(results);
-				var lat = results[0].geometry.location.lat();
-				console.log(lat);
-				var lng = results[0].geometry.location.lng();
-				console.log(lng);
-				var location = { lat: lat, lng: lng }
-				 map.setCenter(results[0].geometry.location);
-				var marker = new google.maps.Marker({
-					map: map,
-					position: location
-				});
-			} else {
-				alert('Geocode was not successful for the following reason: ' + status);
-			}
-		})
-	}
+// function codeAddress(data) {
+// 	console.log("mappy");
+// 	for (var k = 0; k <= data.length; k++) {
+// 		var address = data[k].mailingAddress.streetAddress1
+// 		console.log(address);
+// 		geocoder.geocode({
+// 			"address": address
+// 		}, function (results, status) {
+// 			if (status == 'OK') {
+// 				console.log(results);
+// 				var lat = results[0].geometry.location.lat();
+// 				console.log(lat);
+// 				var lng = results[0].geometry.location.lng();
+// 				console.log(lng);
+// 				var location = { lat: lat, lng: lng }
+// 				 map.setCenter(results[0].geometry.location);
+// 				var marker = new google.maps.Marker({
+// 					map: map,
+// 					position: location
+// 				});
+// 			} else {
+// 				alert('Geocode was not successful for the following reason: ' + status);
+// 			}
+// 		})
+// 	}
 
-}
+// }
 
 
 //calling the function on click of a blue button
@@ -213,8 +214,5 @@ function displayViewed() {
 	}
 }
 
-
-
-// // (WORK IN PROGRESS)
 
 
