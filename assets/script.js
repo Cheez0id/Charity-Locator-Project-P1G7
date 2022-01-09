@@ -190,12 +190,14 @@ charityQResult.addEventListener("click", function (event) {
 	}
 	charityViewed.unshift(charityInfo);
 	localStorage.setItem("viewed", JSON.stringify(charityViewed));
+	displayViewed();
 });
 
-displayViewed();
+
 
 //Display on some HTML element  (WORK IN PROGRESS) NEED TO SET REFRESH PROPERLY
 function displayViewed() {
+	charityViewResult.innerHTML = "";
 	var charityInfo = JSON.parse(localStorage.getItem("viewed"));
 	for (var j = 0; j < 5; j++) {
 		charityName = charityInfo[j].name;
@@ -213,8 +215,15 @@ function displayViewed() {
 	}
 }
 
+function fillStorage () {
+	var storage = JSON.parse(localStorage.getItem("viewed"));
+	if (storage !== null) {
+		charityViewed = storage;
+	}
+	displayViewed();
+}
 
-
+fillStorage();
 // // (WORK IN PROGRESS)
 
 
