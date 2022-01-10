@@ -24,6 +24,11 @@
 	
 <!-- HEADS UP: The long strange class names and the extra rows in the HTML are for the styling. Please do not move them. -->
 	<body>
+
+		<header>
+			<h1>Charity locator</h1>
+		</header>
+	
 		<div class = "charityCard">
 			<form id="inputForm">
 				<div class="form-group">
@@ -45,11 +50,14 @@
 				<button type="clear" class="btn btn-primary   mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="clearBtn">Clear</button>
 			</form>
 		</div>
-			
+
 				<!--CHARITY INFO AREA-->
 			<div class="mdl-grid">
 				<div class="charityDiv mdl-cell mdl-cell--6-col">
+					<div class="charityBox">
 					<h2>Organizations and Foundations</h2>
+					<p>Click on the box to save an organization to your "Most recent searches". Click the link to be redirected to their website.</p>
+				</div>
 					<div class="listContainer">
 						<div id="charitiesList"></div>
 					</div>
@@ -79,7 +87,13 @@
 		<script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtsrsJkZLYa2X7SsRiYiqglUHni6oVabU&callback=initMap&v=weekly"
     ></script>
-	
+	<footer>
+		Created by: Mary Prince,
+
+							Emily Reese, 
+							Benny, Kim
+							Wes,  Clark
+	</footer>
 	</body>
 
 </html>
