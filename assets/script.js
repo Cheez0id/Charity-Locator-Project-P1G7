@@ -15,14 +15,13 @@ var charityViewResult = document.getElementById("charitiesViewed");
 
 function initMap() {
 	geocoder = new google.maps.Geocoder();
-	mapDiv = document.getElementById('map');
+	mapDiv = document.getElementById("map");
 	console.log(mapDiv);
-	map = new google.maps.Map(document.getElementById("map"),
-		{
-			center: { lat: 33.7490, lng: -84.3880 },
-			zoom: 8
-		});
-};
+	map = new google.maps.Map(document.getElementById("map"), {
+		center: { lat: 33.749, lng: -84.388 },
+		zoom: 8,
+	});
+}
 
 //a function that when called will run a query on charity API
 function fetchCharity() {
@@ -60,9 +59,8 @@ function fetchCharity() {
 		.then(function (data) {
 			console.log(data);
 			displayEverything(data);
-
 		});
-};
+}
 
 //Display Charities in cards and on the map
 function displayEverything(data) {
@@ -94,45 +92,50 @@ function displayEverything(data) {
 		charityQResult.append(charityQCard);
 
 		//Showing on map function
-		var address = data[i].mailingAddress.streetAddress1
+		var address = data[i].mailingAddress.streetAddress1;
 		console.log(address);
-		geocoder.geocode({
-			"address": address
-		}, function (results, status) {
-			if (status == 'OK') {
-				console.log(results);
-				var lat = results[0].geometry.location.lat();
-				console.log(lat);
-				var lng = results[0].geometry.location.lng();
-				console.log(lng);
-				var location = { lat: lat, lng: lng }
-				// map.setCenter(results[0].geometry.location);
-				var marker = new google.maps.Marker({
-					map: map,
-					position: location
-				});
-			} else {
-				alert('Geocode was not successful for the following reason: ' + status);
+		geocoder.geocode(
+			{
+				address: address,
+			},
+			function (results, status) {
+				if (status == "OK") {
+					console.log(results);
+					var lat = results[0].geometry.location.lat();
+					console.log(lat);
+					var lng = results[0].geometry.location.lng();
+					console.log(lng);
+					var location = { lat: lat, lng: lng };
+					// map.setCenter(results[0].geometry.location);
+					var marker = new google.maps.Marker({
+						map: map,
+						position: location,
+					});
+				} else {
+					alert(
+						"Geocode was not successful for the following reason: " + status
+					);
+				}
 			}
-		})
-
+		);
 	}
-};
+}
 
 //calling the function on click of a blue button
 // then running fetchCharity();
-document.getElementById("inputForm").addEventListener("submit", function (event) {
-	event.preventDefault();
-	console.log("a button was clicked");
-	fetchCharity();
-});
+document
+	.getElementById("inputForm")
+	.addEventListener("submit", function (event) {
+		event.preventDefault();
+		console.log("a button was clicked");
+		fetchCharity();
+	});
 
 //CLEAR BUTTON TO REFRESH PAGE
 document.getElementById("clearBtn").addEventListener("click", function () {
 	console.log("a button was clicked");
 	window.location.reload();
 });
-
 
 //CLEAR BUTTON TO REFRESH PAGE
 document.getElementById("clearBtn").addEventListener("click", function () {
@@ -196,10 +199,10 @@ function displayViewed() {
 			charityAddress;
 		charityViewResult.append(charityViewCard);
 	}
-};
+}
 
 //Repopulate the Local Storage
-function fillStorage () {
+function fillStorage() {
 	var storage = JSON.parse(localStorage.getItem("viewed"));
 	if (storage !== null) {
 		charityViewed = storage;

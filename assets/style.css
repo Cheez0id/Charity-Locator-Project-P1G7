@@ -1,126 +1,120 @@
 header {
-   padding-top: 20px;
-    color: rgb(83, 52, 133);
-    background-color: antiquewhite;
-    border-bottom: 5px solid rgb(83, 52, 133);
+	padding-top: 20px;
+	color: rgb(83, 52, 133);
+	background-color: antiquewhite;
+	border-bottom: 5px solid rgb(83, 52, 133);
 }
 
 header h1 {
-  text-align: center;
-  padding-bottom: 20px;
+	text-align: center;
+	padding-bottom: 20px;
 }
 
- 
 /* INPUT FORM */
 
-.charityDiv{
-  align-content: center;
-  }
-
-#inputForm{
-  text-align: center;
-}
-#clearButton{
-  margin: 5px;
+.charityDiv {
+	align-content: center;
 }
 
-#submitBtn{
-  margin: 5px;
+#inputForm {
+	text-align: center;
+}
+#clearButton {
+	margin: 5px;
+}
+
+#submitBtn {
+	margin: 5px;
 }
 
 /* SEARCH RESULTS */
 
 .charityBox {
-  color: rgb(83, 52, 133);
-  text-align: center;
-  border: 5px solid rgb(83, 52, 133);
-  /* box-shadow: 2px 2px black; */
-  background-color: antiquewhite;
+	color: rgb(83, 52, 133);
+	text-align: center;
+	border: 5px solid rgb(83, 52, 133);
+	/* box-shadow: 2px 2px black; */
+	background-color: antiquewhite;
 }
 
-.charityBox p 
-{
-  color: black;
+.charityBox p {
+	color: black;
 }
 
 .form-group {
-  margin: 3px;
+	margin: 3px;
 }
 
-.listContainer{
-  overflow: scroll;
-  height: 425px;
+.listContainer {
+	overflow: scroll;
+	height: 425px;
 }
 
-.charityCard{
-  margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 60%;
-    border: 5px solid rgb(83, 52, 133);
-    /* box-shadow: 2px 2px black; */
-    background-color: antiquewhite;
-    font-size: 125%;
-    padding: 25px;
-}
-
-.charityCardNo{
-  margin-left: auto;
+.charityCard {
+	margin-left: auto;
 	margin-right: auto;
 	margin-top: 25px;
 	margin-bottom: 25px;
 	width: 60%;
 	border: 5px solid rgb(83, 52, 133);
-  /* box-shadow: 2px 2px black; */
-  background-color: antiquewhite;
+	/* box-shadow: 2px 2px black; */
+	background-color: antiquewhite;
 	font-size: 125%;
 	padding: 25px;
-  content: "No Results Found";
 }
 
- /* MAP */
+.charityCardNo {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width: 60%;
+	border: 5px solid rgb(83, 52, 133);
+	/* box-shadow: 2px 2px black; */
+	background-color: antiquewhite;
+	font-size: 125%;
+	padding: 25px;
+	content: "No Results Found";
+}
+
+/* MAP */
 
 #map {
-  top: 10px;
-   margin-left: 5%;
-    height: 500px;
-    border: 3px solid rgb(83, 52, 133);
-    /* box-shadow: 2px 2px black; */
-  }
-
-
-  /* MOST RECENT */
-  
-.mostRecent h3{
-  text-align: center;
-  color: rgb(83, 52, 133);
-  border: 5px solid rgb(83, 52, 133);
-  /* box-shadow: 2px 2px black; */
-  margin: 5% 13% 5% auto;
-  float: right;
-  padding: 20px 10px;
-  background-color: antiquewhite;
+	top: 10px;
+	margin-left: 5%;
+	height: 500px;
+	border: 3px solid rgb(83, 52, 133);
+	/* box-shadow: 2px 2px black; */
 }
 
-.mostRecent{
-  width: 100%;
-   top: 10%;
-   display: block;
+/* MOST RECENT */
+
+.mostRecent h3 {
+	text-align: center;
+	color: rgb(83, 52, 133);
+	border: 5px solid rgb(83, 52, 133);
+	/* box-shadow: 2px 2px black; */
+	margin: 5% 13% 5% auto;
+	float: right;
+	padding: 20px 10px;
+	background-color: antiquewhite;
+}
+
+.mostRecent {
+	width: 100%;
+	top: 10%;
+	display: block;
 }
 
 .recentList {
-    overflow: scroll;
-    height: 300px;
-    margin-left: 20%;
+	overflow: scroll;
+	height: 300px;
+	margin-left: 20%;
 }
-
 
 footer {
-    color: black;
-    font-family: cursive;
-    margin: 20px;
-    padding: 20px;
+	color: black;
+	font-family: cursive;
+	margin: 20px;
+	padding: 20px;
 }
-
-
