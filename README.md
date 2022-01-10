@@ -1,4 +1,5 @@
 # Charity-Locator-Project-P1G7- "Food Foundation Finder"
+##This is a website/app that we built in less than a week after a month of class.##
 
 This is a group/collaborative project for Georgia Tech Full Stack Flex Bootcamp (Project 1)
 Contributors: Wes Clark, Benjamin Kim, Mary Prince, Emily Reese
