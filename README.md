@@ -1,20 +1,28 @@
-# Charity-Locator-Project-P1G7
+# Charity-Locator-Project-P1G7- "Food Foundation Finder"
 
 This is a group/collaborative project for Georgia Tech Full Stack Flex Bootcamp (Project 1)
 Contributors: Wes Clark, Benjamin Kim, Mary Prince, Emily Reese
 Broad Goal: Learn how to effectively collaborate with other developers on a web application that is hosted on GitHub
 Specific Goal: create and work in a repository together to develop a functional dynamic application - Charity Locator for Nearby Food Banks
 
+## User Story
 I am a user who is looking for nearby foodbank
-I need to know what foodbanks are closest to me  (walking distance?/modes of transportation)
-Element 1: I will have to input my address (input form) (Bootstrap?) that is saved in local storage
-Element 2: use information from local storage and Search API charity list by zipcode/parent address
-Element 3: take original address and Charity address information and put it into a location search
-Element 4: output walking distance 
+I need to know what foodbanks are in my designated area
+So that I can obtain food and establish relationships with these charities
+
+## Project Elements
+Element 1: User will input an address (input form) 
+Element 2: Search API charity list by that address
+Element 3: Fetch Returns list of charities 
+Element 4: Get returned data from first API fetch
+Element 5: Use data to map locations of charities
+Element 5: User clicks on a charity card to view their website
+Element 6: Viewed charity information is saved in local storage
+Element 7: local storage data is dynamically displayed in "most recent searches section"
 
 ## Project 1 Requirements
 1. Must use at least 2 server-side API
-2. Must use a CSS framework <i>other than bootstrap<i>(Jung said bootstrap is ok; tailwind might be good to try)
+2. Must use a CSS framework
 3. Must use client-side storage to store persistent data
 4. Must have a polished UI
 5. Must meet good quality coding standards (indentation, scoping, naming, etc.)
@@ -23,17 +31,22 @@ Element 4: output walking distance
 8. Must be interactive (i.e: accept and respond to user input)
 
 
-
+## References
 Charity API
 Charity Navigator's API
 https://charity.3scale.net/docs/data-api/reference
-Login Info: https://charity.3scale.net/login
-See Google Doc for username/password
 https://charitynavigator.github.io/api/CharityNavigatorAPI/generated/RZenHtmlDocs/CharityNavigator_doc.html
 How to Contact the Charity Navigator API Team: apisupport@charitynavigator.org
 
-Routing API	
-https://www.geoapify.com/routing-api
-GeoapifyGeoapify
-Routing API | Routes and directions | Geoapify Location Platform
-Calculate routes and directions for car, truck, walk, bicycle, and public transport. Set restrictions and desired conditions.
+Bootstrap CSS Framework
+https://getbootstrap.com/
+
+Materialize CSS Framework
+https://materializecss.com/
+
+Google Maps Javascript API
+https://developers.google.com/maps/documentation/javascript/overview
+
+
+
+
