@@ -1,3 +1,16 @@
+header {
+   padding-top: 20px;
+    color: rgb(83, 52, 133);
+    background-color: antiquewhite;
+    border-bottom: 5px solid rgb(83, 52, 133);
+}
+
+header h1 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+ 
 /* INPUT FORM */
 
 .charityDiv{
@@ -17,12 +30,17 @@
 
 /* SEARCH RESULTS */
 
-.charityDiv h2 {
+.charityBox {
   color: rgb(83, 52, 133);
   text-align: center;
   border: 5px solid rgb(83, 52, 133);
-  box-shadow: 2px 2px black;
+  /* box-shadow: 2px 2px black; */
   background-color: antiquewhite;
+}
+
+.charityBox p 
+{
+  color: black;
 }
 
 .form-group {
@@ -41,7 +59,7 @@
     margin-bottom: 25px;
     width: 60%;
     border: 5px solid rgb(83, 52, 133);
-    box-shadow: 2px 2px black;
+    /* box-shadow: 2px 2px black; */
     background-color: antiquewhite;
     font-size: 125%;
     padding: 25px;
@@ -54,7 +72,7 @@
 	margin-bottom: 25px;
 	width: 60%;
 	border: 5px solid rgb(83, 52, 133);
-  box-shadow: 2px 2px black;
+  /* box-shadow: 2px 2px black; */
   background-color: antiquewhite;
 	font-size: 125%;
 	padding: 25px;
@@ -64,11 +82,11 @@
  /* MAP */
 
 #map {
-  top: 30px;
+  top: 10px;
    margin-left: 5%;
     height: 500px;
     border: 3px solid rgb(83, 52, 133);
-    box-shadow: 2px 2px black;
+    /* box-shadow: 2px 2px black; */
   }
 
 
@@ -78,7 +96,7 @@
   text-align: center;
   color: rgb(83, 52, 133);
   border: 5px solid rgb(83, 52, 133);
-  box-shadow: 2px 2px black;
+  /* box-shadow: 2px 2px black; */
   margin: 5% 13% 5% auto;
   float: right;
   padding: 20px 10px;
@@ -98,6 +116,11 @@
 }
 
 
-
+footer {
+    color: black;
+    font-family: cursive;
+    margin: 20px;
+    padding: 20px;
+}
 
 
