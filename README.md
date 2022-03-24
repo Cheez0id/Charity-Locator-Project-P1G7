@@ -8,7 +8,9 @@ Specific Goal: create and work in a repository together to develop a functional 
 ## Link to APP
 https://cheez0id.github.io/Charity-Locator-Project-P1G7/
 ###
-![Screenshot](https://raw.githubusercontent.com/Cheez0id/Charity-Locator-Project-P1G7/main/assets/fff.JPG "Screenshot")
+
+<img width="1672" alt="Screen Shot 2022-03-23 at 8 00 38 PM" src="https://user-images.githubusercontent.com/87937862/159816208-a617a409-d490-4599-8f6c-25505d1d70d1.png">
+<img width="1667" alt="Screen Shot 2022-03-23 at 8 00 49 PM" src="https://user-images.githubusercontent.com/87937862/159816220-abb24306-e243-41f9-8c3e-7815fef5af6d.png">
 
 
 ## User Story
