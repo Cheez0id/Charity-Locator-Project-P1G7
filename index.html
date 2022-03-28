@@ -1,126 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- MATERIALIZE LINKS -->
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
-		/>
-		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- GOOGLE FONT LINKS -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Work+Sans&display=swap"
-			rel="stylesheet"
-		/>
+	<!-- MATERIALIZE LINKS -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- GOOGLE FONT LINKS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 
-		<!--CSS LINK-->
-		<link rel="stylesheet" href="./assets/style.css" />
-		<title>Charity Locator Project</title>
-	</head>
+	<!--CSS LINK-->
+	<link rel="stylesheet" href="./assets/style.css" />
+	<title>Charity Locator Project</title>
+</head>
 
-	<!-- HEADS UP: The long strange class names and the extra rows in the HTML are for the styling. Please do not move them. -->
-	<body>
-		<header>
-			<h1>Food Foundation Finder</h1>
-		</header>
+<!-- HEADS UP: The long strange class names and the extra rows in the HTML are for the styling. Please do not move them. -->
 
-		<!-- SEARCH FORM AREA -->
-		<div class="charityCard">
-			<form id="inputForm">
-				<div class="form-group">
-					<label for="City">City</label>
-					<input
-						type="search"
-						class="form-control"
-						id="City"
-						placeholder="Enter City"
-					/>
-				</div>
+<body>
+	<header class="z-depth-3">
+		<h2>Food Finder <i class="large material-icons">search</i></h2>
+	</header>
 
-				<div class="form-group">
-					<label for="State">State</label>
-					<input
-						type="search"
-						class="form-control"
-						id="State"
-						placeholder="Enter State (GA, MI, Etc.)"
-					/>
-				</div>
-
-				<div class="form-group">
-					<label for="zipCode">Zip Code</label>
-					<input
-						type="search"
-						class="form-control"
-						id="zipCode"
-						placeholder="Enter Zip Code"
-					/>
-				</div>
-
-				<button
-					type="submit"
-					class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
-					id="submitBtn"
-				>
-					Submit
-				</button>
-				<button
-					type="clear"
-					class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
-					id="clearBtn"
-				>
-					Clear
-				</button>
-			</form>
-		</div>
-
-		<!--CHARITY INFO AREA-->
-		<div class="mdl-grid">
-			<div class="charityDiv mdl-cell mdl-cell--6-col">
-				<div class="charityBox">
-					<h2>Organizations and Foundations</h2>
-					<p>
-						Click on the box to save an organization to your "Most recent
-						searches". Click the link to be redirected to their website.
-					</p>
-				</div>
-				<div class="listContainer">
-					<div id="charitiesList"></div>
-				</div>
+	<!-- SEARCH FORM AREA -->
+	<div class="charityCard z-depth-3">
+		<form id="inputForm">
+			<div class="form-group">
+				<label for="City">City</label>
+				<input type="search" class="form-control" id="City" placeholder="Enter City" />
 			</div>
-			<!--MAP SEARCH-->
-			<div id="map" class="mdl-cell--5-col"></div>
-		</div>
 
-		<!--MOST RECENT-->
-		<div class="mostRecent row">
-			<h3 class="mdl-cell--8-col">Most recent searches</h3>
-		</div>
+			<div class="form-group">
+				<label for="State">State</label>
+				<input type="search" class="form-control" id="State" placeholder="Enter State (GA, MI, Etc.)" />
+			</div>
 
-		<div class="row">
-			<div class="recentList mdl-cell--8-col">
-				<div id="charitiesViewed"></div>
+			<div class="form-group">
+				<label for="zipCode">Zip Code</label>
+				<input type="search" class="form-control" id="zipCode" placeholder="Enter Zip Code" />
+			</div>
+
+			<button type="submit"
+				class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+				id="submitBtn">
+				Submit
+			</button>
+			<button type="clear"
+				class="btn btn-primary mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+				id="clearBtn">
+				Clear
+			</button>
+		</form>
+	</div>
+
+	<!--CHARITY INFO AREA-->
+	<div class="mdl-grid z-depth-3">
+		<div class="charityDiv mdl-cell mdl-cell--6-col">
+			<div class="charityBox">
+				<h2>Organizations and Foundations</h2>
+				<p>
+					Click on the box to save an organization to your "Most recent
+					searches". Click the link to be redirected to their website.
+				</p>
+			</div>
+			<div class="listContainer">
+				<div id="charitiesList"></div>
 			</div>
 		</div>
+		<!--MAP SEARCH-->
+		<div id="map" class="mdl-cell--5-col"></div>
+	</div>
 
-		<!-- JAVASCRIPT LINK -->
-		<script type="text/javascript" src="./assets/script.js"></script>
-		<script
-			type="text/javascript"
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtsrsJkZLYa2X7SsRiYiqglUHni6oVabU&callback=initMap&v=weekly"
-		></script>
+	<!--MOST RECENT-->
+	<div class="mostRecent row">
+		<h3 class="mdl-cell--8-col">Most recent searches</h3>
+	</div>
 
-		<footer>Created by: Mary Prince, Emily Reese, Benny Kim, Wes Clark</footer>
-	</body>
+	<div class="row">
+		<div class="recentList mdl-cell--8-col">
+			<div id="charitiesViewed"></div>
+		</div>
+	</div>
+
+	<!-- JAVASCRIPT LINK -->
+	<script type="text/javascript" src="./assets/script.js"></script>
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtsrsJkZLYa2X7SsRiYiqglUHni6oVabU&callback=initMap&v=weekly"></script>
+
+	<footer>Created by: Mary Prince, Emily Reese, Benny Kim, Wes Clark</footer>
+</body>
+
 </html>
